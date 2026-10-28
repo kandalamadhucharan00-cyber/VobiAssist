@@ -1,0 +1,73 @@
+{
+  "info": {
+    "name": "VobiAssist API",
+    "description": "Local FastAPI collection for VobiAssist development and troubleshooting.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Chat",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"How do I troubleshoot 401 errors?\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/chat",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "chat"]
+        }
+      }
+    },
+    {
+      "name": "Connectivity Test",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/vobiz/test-connection",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "vobiz", "test-connection"]
+        }
+      }
+    },
+    {
+      "name": "Webhook Receive",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event_id\": \"evt-001\",\n  \"event_type\": \"call.completed\",\n  \"payload\": {\n    \"call_id\": \"call_123\",\n    \"status\": \"completed\"\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/webhooks/receive",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "webhooks", "receive"]
+        }
+      }
+    }
+  ]
+}
